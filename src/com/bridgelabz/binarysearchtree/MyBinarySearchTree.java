@@ -57,6 +57,15 @@ public class MyBinarySearchTree<T extends Comparable<T>>{
     public void printPreOrderTraversal(){
         ArrayList<T> traversal = new ArrayList<>();
         preOrderTraversalRecursive(root , traversal);
-        System.out.println(traversal);
+        System.out.print("Preorder traversal : " + traversal);
+    }
+    private int getSize(INode<T> root){
+        if(root == null){
+            return 0;
+        }
+        return 1 + getSize(root.getLeft()) + getSize(root.getRight());
+    }
+    public int size(){
+        return getSize(root);
     }
 }

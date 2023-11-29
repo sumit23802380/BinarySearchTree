@@ -37,6 +37,33 @@ public class MyBinarySearchTree<T extends Comparable<T>>{
         return root;
     }
     /*
+     * @desc : search the node recursively by comparing the key value of the root
+     * @params : root of the bst , key of generics
+     * @return : if key exists then true else false
+     */
+    private boolean searchNode(INode<T> root , T key){
+        if(root == null){
+            return  false;
+        }
+        if(root.getKey() == key){
+            return true;
+        }
+        if(key.compareTo(root.getKey()) < 0){
+            return searchNode(root.getLeft() , key);
+        }
+        else{
+            return searchNode(root.getRight() , key);
+        }
+    }
+    /*
+     * @desc : call the searchNode method
+     * @params : key of generics
+     * @return : key is present or not
+     */
+    public boolean search(T key){
+        return searchNode(root,key);
+    }
+    /*
      * @desc : preorder traversal recursive method
      * @params : root of bst and arraylist for storing the traversal
      * @return :

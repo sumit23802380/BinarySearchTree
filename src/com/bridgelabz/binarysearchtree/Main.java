@@ -18,5 +18,6 @@ public class Main {
         binarySearchTree.addNode(67);
         binarySearchTree.printPreOrderTraversal();
         System.out.println("Size of BST is : " + binarySearchTree.size());
+        System.out.println("Key 63 exists : " + binarySearchTree.search(63));
     }
 }
